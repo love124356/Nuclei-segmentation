@@ -45,12 +45,13 @@ cfg.INPUT.MAX_SIZE_TRAIN = 1500
 cfg.INPUT.MIN_SIZE_TEST = 1200
 cfg.INPUT.MAX_SIZE_TEST = 1500
 
-NUM = 1
-output_path = './output/R101/' + str(NUM)
-cfg.OUTPUT_DIR = output_path
+# NUM = 1
+# output_path = './output/R101/' + str(NUM)
+# cfg.OUTPUT_DIR = output_path
 
 # We changed it a little bit for inference
-cfg.MODEL.WEIGHTS = os.path.join(cfg.OUTPUT_DIR, "model_0004999.pth")
+# cfg.MODEL.WEIGHTS = os.path.join(cfg.OUTPUT_DIR, "model_final.pth")
+cfg.MODEL.WEIGHTS = os.path.join("model/model_final.pth")
 cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.05
 cfg.TEST.DETECTIONS_PER_IMAGE = 600
 
