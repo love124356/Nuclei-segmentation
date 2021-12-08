@@ -1,0 +1,4 @@
+dataset/coco/annotations
+dataset/coco/test
+dataset/coco/train
+dataset/coco/trainval
