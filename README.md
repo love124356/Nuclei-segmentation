@@ -98,7 +98,7 @@ All mAP of experiments will be written in [Results](#Results).
 
 ## Inference
 
-Please download [this model]() if you want to reproduce my submission file, and run above codes.
+Please download [this model](https://reurl.cc/l5174l) if you want to reproduce my submission file, and run above codes.
 
 To reproduce my submission file or test the model you trained, run:
 
