@@ -112,6 +112,8 @@ $ python inference.py
 
 Prediction file will be saved as ```root/answer.json```
 
+If you use different hardware, the inference result may be a little different.
+
 ## Results
 
 Our model achieves the following performance on :
