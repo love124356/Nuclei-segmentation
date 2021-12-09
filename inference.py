@@ -51,7 +51,7 @@ cfg.INPUT.MAX_SIZE_TEST = 1500
 
 # We changed it a little bit for inference
 # cfg.MODEL.WEIGHTS = os.path.join(cfg.OUTPUT_DIR, "model_final.pth")
-cfg.MODEL.WEIGHTS = os.path.join("model/model_final.pth")
+cfg.MODEL.WEIGHTS = os.path.join("model_final.pth")
 cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.05
 cfg.TEST.DETECTIONS_PER_IMAGE = 600
 

@@ -47,7 +47,8 @@ output_path = './output/R101/' + str(NUM)
 cfg.OUTPUT_DIR = output_path
 
 # We changed it a little bit for inference
-cfg.MODEL.WEIGHTS = os.path.join(cfg.OUTPUT_DIR, "model_0004999.pth")
+# cfg.MODEL.WEIGHTS = os.path.join(cfg.OUTPUT_DIR, "model_0004999.pth")
+cfg.MODEL.WEIGHTS = os.path.join("model_final.pth")
 cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.05
 cfg.TEST.DETECTIONS_PER_IMAGE = 600
 

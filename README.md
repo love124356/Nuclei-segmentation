@@ -27,13 +27,15 @@ GeForce GTX 3090 32G
 All requirements should be:
 
 ```env
-$ virtualenv detectron2 --python=3.8
+$ virtualenv detectron2 --python=3.9
 $ source ./detectron2/bin/activate
 $ cd Nuclei-segmentation
-$ pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
+$ pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 -f \
+  https://download.pytorch.org/whl/torch_stable.html
 $ python -m pip install detectron2 -f \
   https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html
 $ pip install opencv-python
+$ pip install scikit-image
 ```
 
 Official images can be downloaded from [CodaLab competition](https://codalab.lisn.upsaclay.fr/competitions/333?secret_key=3b31d945-289d-4da6-939d-39435b506ee5#participate-get_data)
@@ -98,7 +100,7 @@ All mAP of experiments will be written in [Results](#Results).
 
 ## Inference
 
-Please download [this model](https://reurl.cc/l5174l) if you want to reproduce my submission file, and run above codes.
+Please download [this model](https://reurl.cc/EZA48K) if you want to reproduce my submission file, put it in ```root/model_final.pth``` and run the following code.
 
 To reproduce my submission file or test the model you trained, run:
 
