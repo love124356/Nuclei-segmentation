@@ -16,11 +16,11 @@ To reproduce my submission without retrainig, do the following steps:
 
 ## Hardware
 
-<!-- Ubuntu 18.04.5 LTS
+Ubuntu 20.04.3 LTS
 
-Intel® Core™ i7-3770 CPU @ 3.40GHz × 8
+Intel® Core™ i7-9700KF CPU @ 3.60GHz × 8
 
-GeForce GTX 1080/PCIe/SSE2 -->
+GeForce GTX 3090 32G
 
 
 ## Requirement
