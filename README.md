@@ -3,7 +3,7 @@
 This repository gathers the code for nuclei-segmentation from the [in-class CodaLab competition](https://codalab.lisn.upsaclay.fr/competitions/333?secret_key=3b31d945-289d-4da6-939d-39435b506ee5).
 
 We use [Detectron2](https://github.com/facebookresearch/detectron2), a Python API provided by Facebook research for Mask R-CNN, based on the PyTorch framework, to train our model.
-In this competition, we use  Mask R-CNN with ResNet-101 and ResNeXt-101(32x8d) backbone these two models and analysis the results.
+In this competition, we use  Mask R-CNN on ResNet-101 and ResNeXt-101(32x8d) backbone these two models and analysis the results.
 
 ## Reproducing Submission
 We need to do some pre-preparation for training and testing on our custom dataset.
@@ -11,7 +11,8 @@ We need to do some pre-preparation for training and testing on our custom datase
 To reproduce my submission without retrainig, do the following steps:
 1. [Requirement](#Requirement)
 2. [Repository Structure](#Repository-Structure)
-3. [Inference](#Inference)
+3. [Dataset setting](#Dataset-setting)
+4. [Inference](#Inference)
 
 ## Hardware
 
@@ -44,10 +45,10 @@ The repository structure is:
 ```
 Nuclei-segmentation(root)
   +-- configs                    # all configs(hyperparameters) used in the program 
-      |   +-- COCO-InstanceSegmentation
-          |   +-- mask_rcnn_R_101_FPN_3x.yaml
-          |   +-- mask_rcnn_X_101_32x8d_FPN_3x.yaml
-      |   +-- Base-RCNN-FPN.yaml
+  |   +-- COCO-InstanceSegmentation
+      |   +-- mask_rcnn_R_101_FPN_3x.yaml
+      |   +-- mask_rcnn_X_101_32x8d_FPN_3x.yaml
+  |   +-- Base-RCNN-FPN.yaml
   +-- dataset                    # all training and testing files
   |   +-- coco
       |   +-- annotations        # json files
@@ -65,7 +66,6 @@ Nuclei-segmentation(root)
           |   +-- ...... 
       |   +-- parse_test.py      # parse testing json file
       |   +-- parse_train.py     # parse training json file
-  |   +-- svhn.yaml
   +-- input_img                  # save training images with segmentation there
   +-- output_img                 # save testing images with segmentation there
   +-- output                     # save training model and matrics.
@@ -112,11 +112,30 @@ Prediction file will be saved as ```root/answer.json```
 
 Our model achieves the following performance on :
 
-<!-- |         | YOLOv5m          | YOLOv5l          | YOLOv5m                                   | YOLOv5m         |
-|:-------:|:----------------:|:----------------:|:-------------------------------------------:|:-----------------:|
-| mAP     | 0.410383 | 0.412982 | 0.409623 | 0.410516 |
-| Speed   | -                | 0.081104 | -                                           | 0.066749 |
-| Note    | img 320 epoch100 | img 320 epoch100 | img 320 epoch100, change train and val sets | default, epoch100 | -->
+ResNet-101 Result:
+
+| No.         | 1                     | 2                     | 3                     | 4                     | 5                     | 6                     | 7                     | 8                     | 9                     | 10                 | 11                   |   |
+|:-----------:|:---------------------:|:---------------------:|:---------------------:|:---------------------:|:---------------------:|:---------------------:|:---------------------:|:---------------------:|:---------------------:|:------------------:|:--------------------:|:---:|
+| model       | R101                  | R101                  | R101                  | R101                  | R101                  | R101                  | R101                  | R101                  | R101                  | R101               | R101                 |   |
+| mAP         | 0.223274 | 0.219256 | 0.208042 | 0.221926 | 0.226062 | 0.211141 | 0.242515 | **0.24355** | 0.232426 | 0.233071 | 0.242185 |   |
+| Batch size  | 128 | **512** | 128 | 128 | 128 | 128 | 128 | 128 | 128 | 128 | 128 |   |
+| Anchor size | 32, 64, 128, 256, 512 | 32, 64, 128, 256, 512 | 32, 64, 128, 256, 512 | 32, 64, 128, 256, 512 | 32, 64, 128, 256, 512 | 32, 64, 128, 256, 512 | 32, 64, 128, 256, 512 | 32, 64, 128, 256, 512 | 32, 64, 128, 256, 512 | **8, 16, 32, 64, 128** | **16, 32, 64, 128, 256** |   |
+| Iteration   | 300000 | 300000 | 300000 | **500000** | **50000** | **200000** | **6000** | **5000** | **4000** | 5000 | 5000 |   |
+| Image size  | 800 | 800 | **1200** | 1200 | 1200 | 1200 | 1200 | 1200 | 1200 | 1200 | 1200 |   |
+| Note(change)        | -                     | batch size            | image size            | iteration             | iteration             | iteration             | iteration             | iteration             | iteration             | anchor size        | anchor size          |   |
+
+ResNeXt-101(32x8d) Result:
+
+| No.         | 12                    | 13                    | 14                    | 15                    |   |
+|:-----------:|:---------------------:|:---------------------:|:---------------------:|:---------------------:|:---:|
+| model       | **X101**                  | X101                 | X101                  | X101                  |   |
+| mAP         | 0.228375 | 0.225095 | 0.243045 | 0.231643 |   |
+| Batch size  | 128 | 128 | 128 | 128 |   |
+| Anchor size | 32, 64, 128, 256, 512 | 32, 64, 128, 256, 512 | 32, 64, 128, 256, 512 | 32, 64, 128, 256, 512 |   |
+| Iteration   | **50000** | **100000** | **5000** | **3000** |   |
+| Image size  | **1000** | 1000 | 1000 | 1000 |   |
+| Note        | iteration             | iteration             | iteration             | iteration             |   |
+
 
 ## Reference
 [1] [Detectron2](https://github.com/facebookresearch/detectron2)
