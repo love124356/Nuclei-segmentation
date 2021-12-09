@@ -140,7 +140,7 @@ ResNeXt-101(32x8d) Result:
 | Anchor size | 32, 64, 128, 256, 512 | 32, 64, 128, 256, 512 | 32, 64, 128, 256, 512 | 32, 64, 128, 256, 512 |   
 | Iteration   | **50000** | **100000** | **5000** | **3000** |   
 | Image size  | **1000** | 1000 | 1000 | 1000 |   
-| Note        | iteration             | iteration             | iteration             | iteration             |   
+| Note        |              | iteration             | iteration             | iteration             |   
 
 
 ## Reference
