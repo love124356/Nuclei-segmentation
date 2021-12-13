@@ -79,8 +79,6 @@ Nuclei-segmentation(root)
 
 ## Dataset setting
 
-If you want to inference, you only need to run ```parse_test.py```.
-
 You can use ```parse_train.py``` to parse training images to .json file and also use ```parse_test.py```  to parse testing images to .json file.
 
 ```py
