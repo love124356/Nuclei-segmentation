@@ -20,7 +20,7 @@ Ubuntu 20.04.3 LTS
 
 Intel® Core™ i7-9700KF CPU @ 3.60GHz × 8
 
-GeForce GTX 3090 32G
+GeForce RTX 3090 32G
 
 
 ## Requirement
